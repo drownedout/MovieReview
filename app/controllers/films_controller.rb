@@ -11,6 +11,7 @@ class FilmsController < ApplicationController
   # GET /films/1
   # GET /films/1.json
   def show
+    @reviews = Review.where(film_id: @film.id).order("created_at DESC")
   end
 
   # GET /films/new

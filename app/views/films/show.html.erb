@@ -29,5 +29,16 @@
   <%= @film.rating %>
 </p>
 
+<%= link_to "Write a review", new_film_review_path(@film) %>
+
+<% if @reviews.blank? %>
+  <p>be the first to write a review!</p>
+<% else %>
+  <% @reviews.each do |i| %>
+    <p><%= i.rating %></p>
+    <p><%= i.comment %></p>
+  <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_film_path(@film) %> |
-<%= link_to 'Back', films_path %>
+<%= link_to 'Back', root_path %>
